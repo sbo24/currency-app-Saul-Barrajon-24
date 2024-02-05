@@ -1,16 +1,72 @@
+html,
+body {
+    background-color: #fffee1;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
 .insert-exchange-container {
     margin-bottom: 20px;
+}
+
+.exchange-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.arrow-container {
+    display: flex;
+    
+    align-items: center;
+    margin: 15px 10px 0 ;
     
 }
+
+.button-container {
+    padding: 10px;
+}
+
+.button-container button {
+    background-color: #d27c2c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 15% 0 0 0;
+    padding: 15px 40px;
+    cursor: pointer; 
+    height: 100%;
+}
+.button-container {
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+
 
 .input-row {
     display: flex;
     gap: 10px;
-    align-items: flex-end;
+    align-items: center;
 }
 
-.logo {
-    width: 50px;
-    margin-right: 10px;
+.input-container {
+    display: flex;
+    flex-direction: column;
 }
 
+h2 {
+    margin-bottom: 0;
+
+}
+
+label {
+    margin-right: 5px;
+
+}
+
+button {
+    cursor: pointer;
+}

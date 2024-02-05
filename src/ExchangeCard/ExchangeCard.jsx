@@ -7,11 +7,15 @@ const ExchangeCard = ({ exchange, currencies, onRemoveExchange }) => {
     const [destFlagUrl, setDestFlagUrl] = useState('');
 
     useEffect(() => {
-        const fetchFlag = (codCurrency, setFlagUrl) => {
+        const fetchFlag = async (codCurrency, setFlagUrl) => {
             try {
-                // Importa la bandera local utilizando require
-                const flag = require(`../path/to/flags/${codCurrency.toLowerCase()}.png`);
-                setFlagUrl(flag.default);
+                const flagCode = currencies[codCurrency].flag;
+                console.log(`Flag code for ${codCurrency}: ${flagCode}`);
+
+                const flagPath = `/img/banderas/${flagCode}.png`;
+                console.log(`Flag path for ${codCurrency}: ${flagPath}`);
+
+                setFlagUrl(flagPath);
             } catch (error) {
                 console.error(`Error fetching ${codCurrency} flag:`, error);
             }
@@ -19,7 +23,7 @@ const ExchangeCard = ({ exchange, currencies, onRemoveExchange }) => {
 
         fetchFlag(codOrigen, setOriginFlagUrl);
         fetchFlag(codDest, setDestFlagUrl);
-    }, [codOrigen, codDest]);
+    }, [codOrigen, codDest, currencies]);
 
     const calculateConvertedAmount = () => {
         const exchangeRate = currencies[codDest].exchangeRate / currencies[codOrigen].exchangeRate;

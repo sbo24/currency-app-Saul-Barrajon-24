@@ -10,11 +10,11 @@ const CurrencyComboBox = ({ currencies, onSelectCurrency, label }) => {
     };
 
     return (
-        <div>
-            <label>{label}</label>
-            <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #ccc', borderRadius: '4px', padding: '5px' }}>
+        <div><label>{label}</label>
+            <div style={{ backgroundColor: 'white', borderRadius: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #d27c2c', borderRadius: '10px', padding: '5px' }}>
                 <img src={`https://flagcdn.com/16x12/${currencies[selectedCurrency].flag.toLowerCase()}.png`} alt={selectedCurrency} style={{ width: '20px', marginRight: '5px' }} />
-                <select value={selectedCurrency} onChange={handleCurrencyChange} style={{ border: 'none', outline: 'none', flex: '1' }}>
+                <select value={selectedCurrency} onChange={handleCurrencyChange} style={{ border: 'none', outline: 'none', flex: '1', padding: '10px', backgroundColor: 'white' }}>
                     {Object.keys(currencies).map((currencyCode) => (
                         <option key={currencyCode} value={currencyCode}>
                             {`${currencies[currencyCode].emoji} ${currencyCode}`}
@@ -22,6 +22,7 @@ const CurrencyComboBox = ({ currencies, onSelectCurrency, label }) => {
                     ))}
                 </select>
                 <span style={{ marginLeft: '5px', fontSize: '12px' }}>{`(${currencies[selectedCurrency].name})`}</span>
+            </div>
             </div>
         </div>
     );
