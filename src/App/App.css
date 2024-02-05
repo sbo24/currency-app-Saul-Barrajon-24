@@ -1,0 +1,16 @@
+.insert-exchange-container {
+    margin-bottom: 20px;
+    
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.logo {
+    width: 50px;
+    margin-right: 10px;
+}
+

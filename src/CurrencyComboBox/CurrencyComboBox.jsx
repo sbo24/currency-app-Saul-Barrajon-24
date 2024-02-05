@@ -1,4 +1,3 @@
-// CurrencyComboBox.jsx
 import React, { useState } from 'react';
 
 const CurrencyComboBox = ({ currencies, onSelectCurrency, label }) => {
@@ -13,13 +12,17 @@ const CurrencyComboBox = ({ currencies, onSelectCurrency, label }) => {
     return (
         <div>
             <label>{label}</label>
-            <select value={selectedCurrency} onChange={handleCurrencyChange}>
-                {Object.keys(currencies).map((currencyCode) => (
-                    <option key={currencyCode} value={currencyCode}>
-                        {`${currencies[currencyCode].emoji} ${currencyCode}`}
-                    </option>
-                ))}
-            </select>
+            <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #ccc', borderRadius: '4px', padding: '5px' }}>
+                <img src={`https://flagcdn.com/16x12/${currencies[selectedCurrency].flag.toLowerCase()}.png`} alt={selectedCurrency} style={{ width: '20px', marginRight: '5px' }} />
+                <select value={selectedCurrency} onChange={handleCurrencyChange} style={{ border: 'none', outline: 'none', flex: '1' }}>
+                    {Object.keys(currencies).map((currencyCode) => (
+                        <option key={currencyCode} value={currencyCode}>
+                            {`${currencies[currencyCode].emoji} ${currencyCode}`}
+                        </option>
+                    ))}
+                </select>
+                <span style={{ marginLeft: '5px', fontSize: '12px' }}>{`(${currencies[selectedCurrency].name})`}</span>
+            </div>
         </div>
     );
 };
