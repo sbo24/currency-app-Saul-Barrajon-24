@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CurrencyComboBox from '../CurrencyComboBox/CurrencyComboBox'; // Ajusta la ruta según la estructura de carpetas de tu proyecto
 import CurrencyComboBoxCustom from '../CurrencyComboBox/CurrencyComboBoxCustom';
 import InsertExchange from '../InsertExchange/InsertExchange';
+import ExchangeCard from '../ExchangeCard/ExchangeCard';
 const currencies = {
     "USD": {
         "emoji": "\uD83C\uDDFA\uD83C\uDDF8",
@@ -117,6 +118,11 @@ const App = () => {
         setExchanges([...exchanges, newExchange]);
     };
 
+    const handleRemoveExchange = (exchangeId) => {
+        const updatedExchanges = exchanges.filter((exchange) => exchange.id !== exchangeId);
+        setExchanges(updatedExchanges);
+    };
+
     return (
         <div>
             <InsertExchange
@@ -125,16 +131,16 @@ const App = () => {
             />
 
             <h2>Exchange List:</h2>
-            <ul>
+            <div>
                 {exchanges.map((exchange) => (
-                    <li key={exchange.id}>
-                        <img src={currencies[exchange.codOrigen].flag} alt={exchange.codOrigen} /> 
-                        {exchange.amount} {currencies[exchange.codOrigen].name} to 
-                        <img src={currencies[exchange.codDest].flag} alt={exchange.codDest} /> 
-                        {currencies[exchange.codDest].name}: {exchange.amount}
-                    </li>
+                    <ExchangeCard
+                        key={exchange.id}
+                        exchange={exchange}
+                        currencies={currencies}
+                        onRemoveExchange={handleRemoveExchange}
+                    />
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };

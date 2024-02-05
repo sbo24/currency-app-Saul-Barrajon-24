@@ -33,9 +33,7 @@ const InsertExchange = ({ currencies, onAddExchange }) => {
             setOriginCurrency(null);
             setDestCurrency(null);
             setAmount('');
-        } else {
-            alert('Por favor, complete todos los campos.');
-        }
+        } 
     };
 
     return (
