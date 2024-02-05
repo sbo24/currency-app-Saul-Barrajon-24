@@ -10,14 +10,9 @@ const ExchangeCard = ({ exchange, currencies, onRemoveExchange }) => {
         const fetchFlag = async (codCurrency, setFlagUrl) => {
             try {
                 const flagCode = currencies[codCurrency].flag;
-                console.log(`Flag code for ${codCurrency}: ${flagCode}`);
-
                 const flagPath = `/img/banderas/${flagCode}.png`;
-                console.log(`Flag path for ${codCurrency}: ${flagPath}`);
-
                 setFlagUrl(flagPath);
             } catch (error) {
-                console.error(`Error fetching ${codCurrency} flag:`, error);
             }
         };
 
