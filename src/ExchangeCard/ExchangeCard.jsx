@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import flecha from '../img/arrow.png';
+
 const ExchangeCard = ({ exchange, currencies, onRemoveExchange }) => {
     const { codOrigen, codDest, amount } = exchange;
     const [originFlagUrl, setOriginFlagUrl] = useState('');
@@ -30,21 +32,35 @@ const ExchangeCard = ({ exchange, currencies, onRemoveExchange }) => {
     };
 
     return (
-        <div className="exchange-card">
-            <div className="exchange-info">
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <img src={originFlagUrl} alt={codOrigen} style={{ width: '20px', marginRight: '5px' }} />
-                    <span>{amount} {currencies[codOrigen].name} to</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <img src={destFlagUrl} alt={codDest} style={{ width: '20px', marginRight: '5px' }} />
-                    <span>{currencies[codDest].name}: {calculateConvertedAmount()} {currencies[codDest].name}</span>
+        
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', width: '50%', padding:'3% 0' }}>
+            <div style={{ width: '100%', marginBottom: '10px', display: 'flex',justifyContent:'center' }}>
+                <div style={{ display: 'flex', backgroundColor: '#d3e19d', borderRadius: '20px', padding: '10% 22%', justifyContent: 'space-between', alignItems: 'center', position: 'relative', width: '50%' }}>
+
+                    <img src="https://cdn-icons-png.flaticon.com/512/320/320006.png" alt="" style={{ position: 'absolute', top: '0', right: '0', border: 'none', padding: '5px 10px', cursor: 'pointer', width: '3%' }} className="remove-button" onClick={handleRemoveExchange} />
+
+                    <div style={{ width: '25%', display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
+                        <img src={originFlagUrl} alt={codOrigen} style={{ width: '20px', marginRight: '5px' }} />
+                        <span style={{ whiteSpace: 'nowrap' }}>{amount} {currencies[codOrigen].currency}</span>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', margin: '0 2%', flexShrink: 0 }}>
+                        <img src={flecha} alt="Arrow" style={{ width: '30px' }} />
+                    </div>
+
+                    <div style={{ width: '25%', display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
+                        <img src={destFlagUrl} alt={codDest} style={{ width: '20px', marginRight: '5px' }} />
+                        <span style={{ whiteSpace: 'nowrap' }}>{calculateConvertedAmount()} {currencies[codDest].currency}</span>
+                    </div>
                 </div>
             </div>
-            <button className="remove-button" onClick={handleRemoveExchange}>
-                Remove
-            </button>
         </div>
+
+
+
+
+
+
     );
 };
 

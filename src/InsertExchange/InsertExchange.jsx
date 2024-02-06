@@ -42,7 +42,7 @@ const InsertExchange = ({ currencies, onAddExchange }) => {
                 <h2>Currency Exchanger</h2>
             </div>
 
-            <div className="input-row">
+            <div className="input-row" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                 <div className="logo">
                     <img src={logo} alt="Logo" />
                 </div>
@@ -75,7 +75,6 @@ const InsertExchange = ({ currencies, onAddExchange }) => {
         </div>
     );
 };
-
 
 
 export default InsertExchange;
