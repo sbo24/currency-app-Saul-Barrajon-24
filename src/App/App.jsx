@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import CurrencyComboBox from '../CurrencyComboBox/CurrencyComboBox'; // Ajusta la ruta según la estructura de carpetas de tu proyecto
-import CurrencyComboBoxCustom from '../CurrencyComboBox/CurrencyComboBoxCustom';
 import InsertExchange from '../InsertExchange/InsertExchange';
 import ExchangeCard from '../ExchangeCard/ExchangeCard';
 const currencies = {
@@ -145,7 +143,6 @@ const App = () => {
                 onAddExchange={handleAddExchange}
             />
             <div>
-                <h2>Exchange List:</h2>
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', width:'100%' }}>
                     {exchanges.map((exchange) => (
                         <ExchangeCard

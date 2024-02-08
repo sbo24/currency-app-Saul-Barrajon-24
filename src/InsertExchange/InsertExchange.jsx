@@ -22,16 +22,22 @@ const InsertExchange = ({ currencies, onAddExchange }) => {
     };
 
     const handleAddExchange = () => {
-        if (originCurrency && destCurrency && amount) {
+        if (originCurrency && destCurrency) {
+            const amountValue = parseFloat(amount);
+
+            if (isNaN(amountValue) || amountValue < 0) {
+                alert('La cantidad debe ser mayor o igual a 0');
+                return;
+            }
             const newExchange = {
                 id: Math.floor(Math.random() * 10000),
                 codOrigen: originCurrency,
                 codDest: destCurrency,
-                amount: parseFloat(amount),
+                amount: amountValue,
             };
             onAddExchange(newExchange);
-            setOriginCurrency(null);
-            setDestCurrency(null);
+            setOriginCurrency('');
+            setDestCurrency('');
             setAmount('');
         }
     };
@@ -39,7 +45,7 @@ const InsertExchange = ({ currencies, onAddExchange }) => {
     return (
         <div className="insert-exchange-container">
             <div className="exchange-content">
-                <h2>Currency Exchanger</h2>
+                <h2 className='font-krona'>Currency Exchanger</h2>
             </div>
 
             <div className="input-row" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>

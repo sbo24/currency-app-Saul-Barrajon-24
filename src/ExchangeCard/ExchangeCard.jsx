@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import flecha from '../img/arrow.png';
+import eliminar from '../img/remove.png';
 
 const ExchangeCard = ({ exchange, currencies, onRemoveExchange }) => {
     const { codOrigen, codDest, amount } = exchange;
@@ -37,16 +38,17 @@ const ExchangeCard = ({ exchange, currencies, onRemoveExchange }) => {
             <div style={{ width: '100%', marginBottom: '10px', display: 'flex',justifyContent:'center' }}>
                 <div style={{ display: 'flex', backgroundColor: '#d3e19d', borderRadius: '20px', padding: '10% 22%', justifyContent: 'space-between', alignItems: 'center', position: 'relative', width: '50%' }}>
 
-                    <img src="https://cdn-icons-png.flaticon.com/512/320/320006.png" alt="" style={{ position: 'absolute', top: '0', right: '0', border: 'none', padding: '10px 20px', cursor: 'pointer', width: '4%' }} className="remove-button" onClick={handleRemoveExchange} />
+                    <img src={eliminar} alt="" style={{ position: 'absolute', top: '0', right: '0', border: 'none', padding: '10px 20px', cursor: 'pointer' }} className="remove-button" onClick={handleRemoveExchange} />
 
                     <div style={{ width: '25%', display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
                         <img src={originFlagUrl} alt={codOrigen} style={{ width: '50px', height: '30px', marginRight: '5px' }} />
                         <span style={{ whiteSpace: 'nowrap' }}>{amount} {currencies[codOrigen].currency}</span>
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', margin: '0 2%', flexShrink: 0 }}>
-                        <img src={flecha} alt="Arrow" style={{ width: '30px' }} />
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0 2%', flexShrink: 0 }}>
+                        <img src={flecha} alt="Arrow" />
                     </div>
+
 
                     <div style={{ width: '25%', display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
                         <img src={destFlagUrl} alt={codDest} style={{ width: '50px', height:'30px', marginRight: '5px' }} />
