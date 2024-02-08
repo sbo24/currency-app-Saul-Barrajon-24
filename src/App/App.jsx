@@ -99,6 +99,7 @@ const currencies = {
         "emoji": "\uD83C\uDDFF\uD83C\uDDE6",
         "exchangeRate": 16.96,
         "name": "South African Rand",
+        "flag": "za",
         "currency": "ZAR",
     },
     "MXN": {

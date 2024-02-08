@@ -33,14 +33,14 @@ const ExchangeCard = ({ exchange, currencies, onRemoveExchange }) => {
 
     return (
         
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', width: '50%', padding:'3% 0' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', width: '50%', padding:'3% 0 0 0' }}>
             <div style={{ width: '100%', marginBottom: '10px', display: 'flex',justifyContent:'center' }}>
                 <div style={{ display: 'flex', backgroundColor: '#d3e19d', borderRadius: '20px', padding: '10% 22%', justifyContent: 'space-between', alignItems: 'center', position: 'relative', width: '50%' }}>
 
-                    <img src="https://cdn-icons-png.flaticon.com/512/320/320006.png" alt="" style={{ position: 'absolute', top: '0', right: '0', border: 'none', padding: '5px 10px', cursor: 'pointer', width: '3%' }} className="remove-button" onClick={handleRemoveExchange} />
+                    <img src="https://cdn-icons-png.flaticon.com/512/320/320006.png" alt="" style={{ position: 'absolute', top: '0', right: '0', border: 'none', padding: '10px 20px', cursor: 'pointer', width: '4%' }} className="remove-button" onClick={handleRemoveExchange} />
 
                     <div style={{ width: '25%', display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
-                        <img src={originFlagUrl} alt={codOrigen} style={{ width: '20px', marginRight: '5px' }} />
+                        <img src={originFlagUrl} alt={codOrigen} style={{ width: '50px', height: '30px', marginRight: '5px' }} />
                         <span style={{ whiteSpace: 'nowrap' }}>{amount} {currencies[codOrigen].currency}</span>
                     </div>
 
@@ -49,18 +49,12 @@ const ExchangeCard = ({ exchange, currencies, onRemoveExchange }) => {
                     </div>
 
                     <div style={{ width: '25%', display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
-                        <img src={destFlagUrl} alt={codDest} style={{ width: '20px', marginRight: '5px' }} />
+                        <img src={destFlagUrl} alt={codDest} style={{ width: '50px', height:'30px', marginRight: '5px' }} />
                         <span style={{ whiteSpace: 'nowrap' }}>{calculateConvertedAmount()} {currencies[codDest].currency}</span>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
     );
 };
 

@@ -13,7 +13,7 @@ const CurrencyComboBox = ({ currencies, onSelectCurrency, label }) => {
         <div><label>{label}</label>
             <div style={{ backgroundColor: 'white', borderRadius: '10px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #d27c2c', borderRadius: '10px', padding: '5px' }}>
-                <img src={`https://flagcdn.com/16x12/${currencies[selectedCurrency].flag.toLowerCase()}.png`} alt={selectedCurrency} style={{ width: '20px', marginRight: '5px' }} />
+                <img src={`https://flagcdn.com/28x21/${currencies[selectedCurrency].flag.toLowerCase()}.png`} alt={selectedCurrency} style={{ marginRight: '5px' }} />
                 <select value={selectedCurrency} onChange={handleCurrencyChange} style={{ border: 'none', outline: 'none', flex: '1', padding: '10px', backgroundColor: 'white' }}>
                     {Object.keys(currencies).map((currencyCode) => (
                         <option key={currencyCode} value={currencyCode}>
