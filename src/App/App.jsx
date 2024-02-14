@@ -122,7 +122,7 @@ const initialExchanges = [
         codDest: "JPY",
         amount: 2
     }
-]
+];
 
 const App = () => {
     const [exchanges, setExchanges] = useState(initialExchanges);
@@ -137,22 +137,20 @@ const App = () => {
     };
 
     return (
-        <div>
+        <div className="app-container">
             <InsertExchange
                 currencies={currencies}
                 onAddExchange={handleAddExchange}
             />
-            <div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', width:'100%' }}>
-                    {exchanges.map((exchange) => (
-                        <ExchangeCard
-                            key={exchange.id}
-                            exchange={exchange}
-                            currencies={currencies}
-                            onRemoveExchange={handleRemoveExchange}
-                        />
-                    ))}
-                </div>
+            <div className="exchange-cards-container">
+                {exchanges.map((exchange) => (
+                    <ExchangeCard
+                        key={exchange.id}
+                        exchange={exchange}
+                        currencies={currencies}
+                        onRemoveExchange={handleRemoveExchange}
+                    />
+                ))}
             </div>
         </div>
     );

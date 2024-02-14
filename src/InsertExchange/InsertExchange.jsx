@@ -8,6 +8,7 @@ const InsertExchange = ({ currencies, onAddExchange }) => {
     const [originCurrency, setOriginCurrency] = useState(null);
     const [destCurrency, setDestCurrency] = useState(null);
     const [amount, setAmount] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleSelectOriginCurrency = (currency) => {
         setOriginCurrency(currency);
@@ -19,6 +20,7 @@ const InsertExchange = ({ currencies, onAddExchange }) => {
 
     const handleAmountChange = (event) => {
         setAmount(event.target.value);
+        setErrorMessage('');
     };
 
     const handleAddExchange = () => {
@@ -26,15 +28,17 @@ const InsertExchange = ({ currencies, onAddExchange }) => {
             const amountValue = parseFloat(amount);
 
             if (isNaN(amountValue) || amountValue < 0) {
-                alert('La cantidad debe ser mayor o igual a 0');
+                setErrorMessage('La cantidad debe ser mayor o igual a 0');
                 return;
             }
+
             const newExchange = {
                 id: Math.floor(Math.random() * 10000),
                 codOrigen: originCurrency,
                 codDest: destCurrency,
                 amount: amountValue,
             };
+
             onAddExchange(newExchange);
             setOriginCurrency('');
             setDestCurrency('');
@@ -48,14 +52,14 @@ const InsertExchange = ({ currencies, onAddExchange }) => {
                 <h2 className='font-krona'>Currency Exchanger</h2>
             </div>
 
-            <div className="input-row" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+            <div className="input-row">
                 <div className="logo">
                     <img src={logo} alt="Logo" />
                 </div>
 
                 <div className="input-container">
                     <label>Amount:</label>
-                    <input type="number" value={amount} onChange={handleAmountChange} style={{ border: '1px solid #d27c2c', borderRadius: '10px', padding: '15px', margin: '0 20% 0 0' }} />
+                    <input type="number" value={amount} onChange={handleAmountChange} className="custom-input" />
                 </div>
 
                 <CurrencyComboBox
@@ -78,9 +82,14 @@ const InsertExchange = ({ currencies, onAddExchange }) => {
                     <button onClick={handleAddExchange}>ADD</button>
                 </div>
             </div>
+
+            {errorMessage && (
+                <div className="error-message">
+                    {errorMessage}
+                </div>
+            )}
         </div>
     );
 };
-
 
 export default InsertExchange;

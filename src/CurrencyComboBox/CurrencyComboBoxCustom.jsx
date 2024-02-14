@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../App/App.css';
 
 const CurrencyComboBoxCustom = ({ currencies, onSelectCurrency, label }) => {
     const [selectedCurrency, setSelectedCurrency] = useState(null);
@@ -11,54 +12,38 @@ const CurrencyComboBoxCustom = ({ currencies, onSelectCurrency, label }) => {
     };
 
     return (
-        <div>
+        <div className="currency-combo-custom-container">
             <label>{label}</label>
             <div
-                style={{
-                    border: '1px solid #ccc',
-                    padding: '5px',
-                    width: '150px',
-                    cursor: 'pointer',
-                }}
+                className="combo-wrapper"
                 onClick={() => setShowOptions(!showOptions)}
             >
                 {selectedCurrency ? (
-                    <>
+                    <div className="selected-currency-info">
                         <img
                             src={`/img/flags/${currencies[selectedCurrency].flag}`}
                             alt={selectedCurrency}
-                            style={{ marginRight: '5px', width: '25px', height: '18px' }}
+                            className="flag-img"
                         />
                         {currencies[selectedCurrency].name}
-                    </>
+                    </div>
                 ) : (
                     'Select a Currency'
                 )}
             </div>
 
             {showOptions && (
-                <div
-                    style={{
-                        border: '1px solid #ccc',
-                        marginTop: '5px',
-                        position: 'absolute',
-                        zIndex: '1',
-                        backgroundColor: '#fff',
-                    }}
-                >
+                <div className="options-container">
                     {Object.keys(currencies).map((currencyCode) => (
                         <div
                             key={currencyCode}
                             onClick={() => handleCurrencyClick(currencyCode)}
-                            style={{
-                                padding: '5px',
-                                cursor: 'pointer',
-                            }}
+                            className="option"
                         >
                             <img
                                 src={`/img/flags/${currencies[currencyCode].flag}`}
                                 alt={currencyCode}
-                                style={{ marginRight: '5px', width: '25px', height: '18px' }}
+                                className="flag-img"
                             />
                             {currencies[currencyCode].name}
                         </div>
