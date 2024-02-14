@@ -20,7 +20,7 @@ Currency Exchange App es una aplicación simple para realizar conversiones de mo
 
 ## Cómo Ejecutar la Aplicación
 
-1. Clona el repositorio: `git clone https://github.com/sbo24/currency-exchange-app.git`
+1. Clona el repositorio: `https://github.com/sbo24/currency-app-Saul-Barrajon-24.git`
 2. Navega al directorio del proyecto: `cd currency-exchange-app`
 3. Instala las dependencias: `npm install`
 4. Inicia la aplicación: `npm start`
