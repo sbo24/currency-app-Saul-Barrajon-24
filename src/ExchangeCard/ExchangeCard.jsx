@@ -28,7 +28,7 @@ const ExchangeCard = ({ exchange, currencies, onRemoveExchange }) => {
         fetchFlag(codDest, setDestFlagUrl);
     }, [codOrigen, codDest, currencies]);
 
-    // Calcular el monto convertido usando las tasas de cambio
+    // Calcular el total convertido usando las tasas de cambio
     const calculateConvertedAmount = () => {
         const exchangeRate = currencies[codDest].exchangeRate / currencies[codOrigen].exchangeRate;
         return (amount * exchangeRate).toFixed(2);
